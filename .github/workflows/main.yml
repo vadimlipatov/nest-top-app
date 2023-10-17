@@ -8,14 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Login to GitHub Container Registry'
-      - run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u <vadimlipatov> --password-stdin       
-
+      # - name: 'Login to GitHub Container Registry'
       - name: Checkout GitHub Action
       - uses: actions/checkout@main
 
       - name: Publish to registy
         uses: elgohr/Publish-Docker-Github-Action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.CR_PAT }}   
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/vadimlipatov/nest-top-app/nest-top-app 
