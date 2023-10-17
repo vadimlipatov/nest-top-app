@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@main
       - name: Publish to registy
         uses: elgohr/Publish-Docker-Github-Action@v4
-          env:
-            GITHUB_TOKEN: ${{ secrets.CR_PAT }}   
+        env:
+          GITHUB_TOKEN: ${{ secrets.CR_PAT }}   
         with:
           registry: docker.pkg.github.com
           name: docker.pkg.github.com/vadimlipatov/nest-top-app/nest-top-app 
